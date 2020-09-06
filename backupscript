@@ -1,0 +1,6 @@
+cd ~
+mysqldump --user=dbusername --password=dbpassword --opt databasename > backup.sql
+zip -r "$(date +"%Y-%m-%d").zip" /var/www/html backup.sql
+scp "$(date +"%Y-%m-%d").zip" user@ip:~/
+rm backup.sql
+rm "$(date +"%Y-%m-%d").zip"  
